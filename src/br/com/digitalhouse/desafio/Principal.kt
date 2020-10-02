@@ -63,13 +63,13 @@ fun main(){
 
             "4" -> exibirResCur()
 
-            "5" -> exibirExcCur()//erro
+            "5" -> exibirExcCur()
 
             "6" -> exibirResPA()
 
             "7" -> exibirResPT()
 
-            "8" -> exibirExcPro() //erro
+            "8" -> exibirExcPro()
 
             "9" -> exibirResAlu()
 
