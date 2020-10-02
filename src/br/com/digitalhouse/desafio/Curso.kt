@@ -15,7 +15,7 @@ package br.com.digitalhouse.desafio
         this.pfTitular = pfTitular
     }
 
-//ok
+
     fun adicionarAluno(aluno: Aluno):Boolean{
         if(alunosMatriculados.size < qtdMaxAlunos){
             alunosMatriculados.add(aluno)
@@ -25,7 +25,7 @@ package br.com.digitalhouse.desafio
         else return false
     }
 
- //ok
+
     fun excluirAluno(aluno: Aluno){
         var retorno = false
         lateinit var aux:Aluno

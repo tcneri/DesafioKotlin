@@ -14,7 +14,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
         listMatriculas = listaMatriculas
     }
 
-//ok
+
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaxAlunos: Int){
         var curso = Curso(nome, codigoCurso, quantidadeMaxAlunos)
         var retorno = false
@@ -33,7 +33,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-//ok
+
     fun excluirCurso(codigoCurso: Int){
         var retorno = false
         lateinit var aux:Curso
@@ -54,7 +54,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-//ok
+
     fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, qtdHMonitoria: Int){
         var profAdj = ProfessorAdjunto(nome, sobrenome, 0,codigoProfessor, qtdHMonitoria)
         var retorno = false
@@ -73,7 +73,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
         }
     }
 
-//ok
+
     fun registrarProfTitular(nome: String, sobrenome: String, codigoProfessor: Int, especialidade: String){
         var profTit = ProfessorTitular(nome, sobrenome, 0,codigoProfessor, especialidade)
         var retorno = false
@@ -91,7 +91,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
         }
     }
 
-//ok
+
     fun excluirProfessor(codigoProfessor: Int) {
         var retorno = false
         lateinit var aux: Professor
@@ -112,7 +112,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-    //ok
+
     fun registrarAluno(nome: String, sobrenome: String, codigoAluno:Int){
         var aluno = Aluno(nome, sobrenome, codigoAluno)
         var retorno = false
@@ -131,7 +131,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-    //ok
+
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
         lateinit var cursoAux: Curso
         lateinit var alunoAux: Aluno
@@ -172,7 +172,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-    //ok
+
     fun alocarProfessores(codigoCurso: Int, codigoPTit: Int, codigoPAdj: Int){
         lateinit var profTitAux: Professor
         lateinit var profAdjAux: Professor

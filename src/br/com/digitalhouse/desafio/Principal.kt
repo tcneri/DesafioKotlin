@@ -22,15 +22,6 @@ val lisTP = mutableListOf(pA1, pA2, pT1, pT2)
 val dhm = DigitalHouseManager(listA, lisTP, listC)
 
 fun main(){
-//
-
-//    dhm.registrarProfAdjunto("paulo", "Walt", 88, 7)
-//    dhm.registrarProfTitular("paulo", "Walt", 111, "js")
-//    dhm.excluirProfessor(1111)
-//    dhm.registrarAluno("thalita", "neri", 22)
-
-//    curso2.excluirAluno(aluno1)
-
     var res = 0
 
     while (res == 0) {
@@ -162,9 +153,8 @@ fun exibirExcPro(){
     println("<---------- EXCLUINDO PROFESSOR ---------->")
     println("Insira o código do professor que deseja excluir: ")
     var codigPT = readLine()!!.toInt()
-    with(dhm) {
-        excluirProfessor(codigPT)
-    }
+    dhm.excluirProfessor(codigPT)
+
 }
 
 fun exibirResAlu(){
