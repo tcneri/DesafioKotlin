@@ -7,15 +7,15 @@ package br.com.digitalhouse.desafio
     lateinit var pfTitular:Professor
 
 
-    constructor(nome: String, codigoCurso: Int, quantidadeMaxAlunos: Int, pfTitular: Professor,
-                pAdjunto: Professor, alunosMatriculados: MutableList<Aluno>) : this(nome, codigoCurso, quantidadeMaxAlunos){
+    constructor(nome: String, codigoCurso: Int, quantidadeMaxAlunos: Int, pfTitular: ProfessorTitular,
+                pAdjunto: ProfessorAdjunto, alunosMatriculados: MutableList<Aluno>) : this(nome, codigoCurso, quantidadeMaxAlunos){
 
         this.alunosMatriculados = alunosMatriculados
         this.pAdjunto = pAdjunto
         this.pfTitular = pfTitular
     }
 
-
+//ok
     fun adicionarAluno(aluno: Aluno):Boolean{
         if(alunosMatriculados.size < qtdMaxAlunos){
             alunosMatriculados.add(aluno)
@@ -25,15 +25,23 @@ package br.com.digitalhouse.desafio
         else return false
     }
 
-
+ //ok
     fun excluirAluno(aluno: Aluno){
-        if (alunosMatriculados.contains(aluno)){
-            alunosMatriculados.remove(aluno)
-            println("Aluno excluído do curso com sucesso.")
+        var retorno = false
+        lateinit var aux:Aluno
+
+        alunosMatriculados.forEach() {
+            if (it.equals(aluno)) {
+                aux = it
+                println("O aluno ${it.nome} ${it.sobrenome} com código ${it.codigo}.")
+                retorno = true
+            }
         }
 
-        else {
-            println("Esse aluno não está matriculado no curso.")
+        if (!retorno) println("O aluno ${aluno.nome} ${aluno.sobrenome} não está matriculado no curso.")
+        else if(retorno){
+            alunosMatriculados.removeAt(alunosMatriculados.indexOf(aux))
+            println("O aluno foi excluído com sucesso!")
         }
     }
 

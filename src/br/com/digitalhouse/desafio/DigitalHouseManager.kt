@@ -14,81 +14,124 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
         listMatriculas = listaMatriculas
     }
 
-
+//ok
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaxAlunos: Int){
         var curso = Curso(nome, codigoCurso, quantidadeMaxAlunos)
-        if (listCursos.contains(codigoCurso)){
-            println("O curso já está registrado")
+        var retorno = false
+
+        listCursos.forEach() {
+            if (it.equals(curso)) {
+                println("O curso com código ${it.codigo} já está registrado como ${it.nome} ")
+                retorno = true
+            }
         }
-        else{
+
+        if(!retorno){
             listCursos.add(curso)
             println("Curso $nome adicionado com sucesso!")
         }
 
     }
 
-
+//ok
     fun excluirCurso(codigoCurso: Int){
-        if (listCursos.contains(codigoCurso)){
-            listCursos.removeAt(listCursos.indexOf(codigoCurso))
+        var retorno = false
+        lateinit var aux:Curso
+
+        listCursos.forEach() {
+            if (it.codigo.equals(codigoCurso)) {
+                aux =  it
+                println("Curso ${it.nome} ")
+                retorno = true
+            }
+        }
+
+        if(!retorno) println("O curso não consta na lista de cursos cadastrados.")
+        else if (retorno){
+            listCursos.removeAt(listCursos.indexOf(aux))
             println("Curso excluído com sucesso!")
         }
 
-        else{
-            println("O curso não consta na lista de cursos cadastrados.")
-        }
     }
 
-
+//ok
     fun registrarProfAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, qtdHMonitoria: Int){
         var profAdj = ProfessorAdjunto(nome, sobrenome, 0,codigoProfessor, qtdHMonitoria)
-        if (listProfessores.contains(codigoProfessor)){
-            println("O professor já está registrado!")
+        var retorno = false
+
+
+        listProfessores.forEach(){
+            if (it.equals(profAdj)){
+                println("O professor adjunto com código ${it.codigo} já está registrado como ${it.nome} ${it.sobrenome}!")
+                retorno = true
+            }
         }
-        else{
+
+        if(!retorno){
             listProfessores.add(profAdj)
-            println("Professor adjunto adicionado com sucesso!")
+            println("Professor adjunto ${profAdj.nome} ${profAdj.sobrenome} foi adicionado com sucesso!")
         }
     }
 
-
+//ok
     fun registrarProfTitular(nome: String, sobrenome: String, codigoProfessor: Int, especialidade: String){
         var profTit = ProfessorTitular(nome, sobrenome, 0,codigoProfessor, especialidade)
-        if (listProfessores.contains(codigoProfessor)){
-            println("O professor já está registrado!")
+        var retorno = false
+
+        listProfessores.forEach(){
+            if (it.equals(profTit)){
+                println("O professor titular com código ${it.codigo} já está registrado como ${it.nome} ${it.sobrenome}!")
+                retorno = true
+            }
         }
-        else{
+
+        if(!retorno){
             listProfessores.add(profTit)
-            println("Professor titular adicionado com sucesso!")
+            println("Professor titular ${profTit.nome} ${profTit.sobrenome} foi adicionado com sucesso!")
         }
     }
 
+//ok
+    fun excluirProfessor(codigoProfessor: Int) {
+        var retorno = false
+        lateinit var aux: Professor
 
-    fun excluirProfessor(codigoProfessor: Int){
-        if (listProfessores.contains(codigoProfessor)){
-            listProfessores.removeAt(listProfessores.indexOf(codigoProfessor))
+        listProfessores.forEach() {
+            if (it.codigo.equals(codigoProfessor)) {
+                aux = it
+                println("Professor ${it.nome} ${it.sobrenome} excluído com sucesso!")
+                retorno = true
+            }
+        }
+
+        if (!retorno) println("O professor não consta na lista de professores registrados.")
+        else if(retorno){
+            listProfessores.removeAt(listProfessores.indexOf(aux))
             println("Professor excluído com sucesso!")
         }
 
-        else{
-            println("O Professor não consta na lista de professores cadastrados.")
-        }
     }
 
-
+    //ok
     fun registrarAluno(nome: String, sobrenome: String, codigoAluno:Int){
         var aluno = Aluno(nome, sobrenome, codigoAluno)
-        if (listAlunos.contains(aluno)){
-            println("O aluno já está consta na lista de alunos.")
+        var retorno = false
+
+        listAlunos.forEach() {
+            if (it.equals(aluno)) {
+                println("O aluno com código ${it.codigo} já está registrado como ${it.nome} ${it.sobrenome}")
+                retorno = true
+            }
         }
 
-        else{
+        if(!retorno){
             listAlunos.add(aluno)
-            println("Aluno cadastrado com sucesso!")
+            println("O aluno ${aluno.nome} ${aluno.sobrenome} foi adicionado com sucesso!")
         }
+
     }
 
-
+    //ok
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
         lateinit var cursoAux: Curso
         lateinit var alunoAux: Aluno
@@ -129,7 +172,7 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
 
     }
 
-
+    //ok
     fun alocarProfessores(codigoCurso: Int, codigoPTit: Int, codigoPAdj: Int){
         lateinit var profTitAux: Professor
         lateinit var profAdjAux: Professor
@@ -159,6 +202,4 @@ class DigitalHouseManager(var listAlunos: MutableList<Aluno>, var listProfessore
             }
         }
     }
-
-
 }
